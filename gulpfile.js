@@ -42,7 +42,7 @@ var AUTOPREFIXER_BROWSERS = [
 
 // Lint JavaScript
 gulp.task('jshint', function () {
-  return gulp.src('app/scripts/**/*.js')
+  return gulp.src(['app/scripts/**/*.js','!app/scripts/vendor/**'])
     .pipe(reload({stream: true, once: true}))
     .pipe($.jshint())
     .pipe($.jshint.reporter('jshint-stylish'))
@@ -70,6 +70,12 @@ gulp.task('copy', function () {
     dot: true
   }).pipe(gulp.dest('dist'))
     .pipe($.size({title: 'copy'}));
+});
+
+// Copy bower_components
+gulp.task('copy-bower-js-components', function () {
+  gulp.src('./bower_components/**/*.min.js')
+    .pipe(gulp.dest('app/scripts/vendor'));
 });
 
 // Copy web fonts to dist
@@ -175,7 +181,7 @@ gulp.task('serve:dist', ['default'], function () {
 
 // Build production files, the default task
 gulp.task('default', ['clean'], function (cb) {
-  runSequence('styles', ['jshint', 'html', 'images', 'fonts', 'copy'], cb);
+  runSequence('styles', ['jshint', 'html', 'images', 'fonts', 'copy', 'copy-bower-js-components'], cb);
 });
 
 // Run PageSpeed Insights

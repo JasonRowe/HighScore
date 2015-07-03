@@ -1,0 +1,8 @@
+{
+  "name": "HighScore-bower",
+  "description": "bower components for HighScore web app",
+  "version": "1.0.0",
+  "dependencies": {
+    "angularjs": "~1.4.1"
+  }
+}
