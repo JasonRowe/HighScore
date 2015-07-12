@@ -48,12 +48,29 @@
     }
   });
 
- // TODO organize angular module, controller into seperate files.
- // https://github.com/johnpapa/angular-styleguide
-    
-  var appname = angular.module('MyWebApp', []);
-  appname.controller('pageController', ['$scope',
-  function($scope) {
-    $scope.greeting = { text: 'Hello' };
-  }]);
+  angular.module('main', ['ngRoute', 'core', 'admin', 'display'])
+    .controller('mainCtrl', MainCtrl)
+    .config(function ($routeProvider) {
+      $routeProvider.when('/create', {
+        templateUrl: '/views/create.html',
+        controller: 'createCtrl'
+      });
+      $routeProvider.when('/modify', {
+        templateUrl: '/views/modify.html',
+        controller: 'modifyCtrl'
+      });
+      $routeProvider.when('/display', {
+        templateUrl: '/views/display.html',
+        controller: 'displayCtrl'
+      });
+      $routeProvider.otherwise({
+        templateUrl: '/views/main.html',
+        controller: 'mainCtrl'
+      });
+    });
+
+  function MainCtrl($scope) {
+    $scope.greeting = "Hello";
+  }
+
 })();
