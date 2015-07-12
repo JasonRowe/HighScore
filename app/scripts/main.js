@@ -48,6 +48,10 @@
     }
   });
 
+  function MainCtrl($scope) {
+    $scope.greeting = 'Hello';
+  }
+
   angular.module('main', ['ngRoute', 'core', 'admin', 'display'])
     .controller('mainCtrl', MainCtrl)
     .config(function ($routeProvider) {
@@ -68,9 +72,5 @@
         controller: 'mainCtrl'
       });
     });
-
-  function MainCtrl($scope) {
-    $scope.greeting = "Hello";
-  }
 
 })();
