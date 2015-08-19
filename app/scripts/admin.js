@@ -1,14 +1,17 @@
-﻿angular.module('admin', [])
-  .controller('modifyCtrl', ModifyCtrl)
-  .controller('createCtrl', ['$scope', CreateCtrl]);
+/*jslint browser: true*/
+/*global window: false */
 
-function CreateCtrl($scope) {
-  $scope.list = [];
-      $scope.listName = 'My List Name';
-      $scope.submit = function() {
-        if ($scope.listName) {
-          $scope.list.push(this.listName);
-          $scope.listName = '';
+'use strict';
+angular.module('admin', [])
+  .controller('modifyCtrl', ModifyCtrl)
+  .controller('createCtrl', ['$scope', 'List', CreateCtrl]);
+
+function CreateCtrl($scope, List) {
+    $scope.listName = 'My List Name';
+    $scope.submit = function() {
+      if ($scope.listName) {
+          var id = List.addItem(this.listName);
+          window.location.href = '#/display/' + id;
         }
       };
 }

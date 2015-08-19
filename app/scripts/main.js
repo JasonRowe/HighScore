@@ -52,7 +52,7 @@
     $scope.greeting = 'Hello';
   }
 
-  angular.module('main', ['ngRoute', 'core', 'admin', 'display'])
+  angular.module('main', ['ngRoute', 'core', 'admin', 'display', 'highScoreServices'])
     .controller('mainCtrl', MainCtrl)
     .config(function ($routeProvider) {
       $routeProvider.when('/create', {
@@ -63,7 +63,7 @@
         templateUrl: '/views/modify.html',
         controller: 'modifyCtrl'
       });
-      $routeProvider.when('/display', {
+      $routeProvider.when('/display/:listId', {
         templateUrl: '/views/display.html',
         controller: 'displayCtrl'
       });
