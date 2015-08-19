@@ -1,1 +1,15 @@
+
 <h1>Create Page Content</h1>
+
+<form ng-submit="submit()" ng-controller="createCtrl">
+  <div>
+    <label for="name">List Name:</label>
+    <input type="text" id="listName" ng-model="listName" name="listName"/>
+  </div>
+  <div>
+    <label for="description">Description:</label>
+    <textarea id="description"></textarea>
+  </div>
+  <button class="button--primary" type="submit">Create list</button>
+  <pre>debug submit list={{list}}</pre>
+</form>
