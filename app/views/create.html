@@ -4,11 +4,11 @@
 <form ng-submit="submit()" ng-controller="createCtrl">
   <div>
     <label for="name">List Name:</label>
-    <input type="text" id="listName" ng-model="listName" name="listName"/>
+    <input type="text" id="listName" ng-model="name" name="name"/>
   </div>
   <div>
     <label for="description">Description:</label>
-    <textarea id="description"></textarea>
+    <textarea id="description" ng-model="description" name="description"></textarea>
   </div>
   <button class="button--primary" type="submit">Create list</button>
 </form>

@@ -52,6 +52,9 @@
     $scope.greeting = 'Hello';
   }
 
+  function notFoundCtrl($scope) {
+  }
+
   angular.module('main', ['ngRoute', 'core', 'admin', 'display', 'highScoreServices'])
     .controller('mainCtrl', MainCtrl)
     .config(function ($routeProvider) {
@@ -66,6 +69,10 @@
       $routeProvider.when('/display/:listId', {
         templateUrl: '/views/display.html',
         controller: 'displayCtrl'
+      });
+      $routeProvider.when('/404', {
+        templateUrl: '/views/404.html',
+        controller: 'notFoundCtrl'
       });
       $routeProvider.otherwise({
         templateUrl: '/views/main.html',

@@ -10,7 +10,13 @@ function CreateCtrl($scope, List) {
     $scope.listName = 'My List Name';
     $scope.submit = function() {
       if ($scope.listName) {
-          var id = List.addItem(this.listName);
+
+          var listDetails = {
+            'Name': this.name,
+            'Description': this.description
+          };
+
+          var id = List.addItem(listDetails);
           window.location.href = '#/display/' + id;
         }
       };
