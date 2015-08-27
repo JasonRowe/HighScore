@@ -9,7 +9,7 @@ function DisplayCtrl($routeParams, $scope, List) {
     $scope.Name = listDetails.Name;
     $scope.Description = listDetails.Description;
   }
-  else{
+  else {
     window.location.href = '#/404';
   }
 }

@@ -1,14 +1,20 @@
 
 <h1>Create Page Content</h1>
 
-<form ng-submit="submit()" ng-controller="createCtrl">
+<form name="myForm" id="myForm" ng-submit="submit()" ng-controller="createCtrl">
   <div>
-    <label for="name">List Name:</label>
-    <input type="text" id="listName" ng-model="name" name="name"/>
+    <label for="name">List Name:</label><br>
+    <input type="text" id="listName" ng-model="name" name="name" required/>
+    <span class="color--remember icon icon-star"
+          ng-show="myForm['name'].$error.required">
+    </span>
   </div>
   <div>
-    <label for="description">Description:</label>
-    <textarea id="description" ng-model="description" name="description"></textarea>
+    <label for="description">Description:</label><br>
+    <textarea id="description" ng-model="description" name="description" required></textarea>
+    <span class="color--remember icon icon-star"
+          ng-show="myForm['description'].$error.required">
+    </span>
   </div>
   <button class="button--primary" type="submit">Create list</button>
 </form>
